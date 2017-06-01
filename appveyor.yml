@@ -5,7 +5,7 @@ install:
   - git submodule update --init
 
   # Install NSIS
-  - appveyor DownloadFile "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/unsis/nsis-2.46.5-Unicode-setup.exe" -FileName nsis.exe
+  - appveyor DownloadFile "https://sourceforge.net/projects/nsis/files/latest/download?source=files" -FileName nsis.exe
   - nsis.exe /S
 
   # Get bazaar and clone the translations repo

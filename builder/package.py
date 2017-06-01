@@ -284,16 +284,9 @@ release = pkginfo.Develop('.').version
 Git = CheckPath('git')
 
 if os.name == 'nt':
-    msg = 'Requires the Unicode version of NSIS'
-    NSIS = CheckPath('makensisw')
-    if NSIS:
-        log = '%s.log' % NSIS
-        os.system('%s >%s' % (NSIS, log))
-        if 'Unicode' in open(log).read():
-            msg = ''
-        delete_files(log)
-    if msg:
-        print msg
+    NSIS = CheckPath('makensis')
+    if not NSIS:
+        print 'Requires the Unicode version of NSIS'
         exit(1)
     ZipCmd = CheckPath('7za')
     if not ZipCmd:

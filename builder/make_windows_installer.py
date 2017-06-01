@@ -83,7 +83,7 @@ os.rename('src/NSIS_Installer.nsi.tmp', 'installer_output/NSIS_Installer.nsi')
 os.chdir('installer_output')
 
 # Run NSIS
-os.system('makensisw.exe /v3 /DSAB_PRODUCT=%s /DSAB_VERSION=%s /DSAB_FILE=%s NSIS_Installer.nsi' % \
+os.system('makensis.exe /v3 /DSAB_PRODUCT=%s /DSAB_VERSION=%s /DSAB_FILE=%s NSIS_Installer.nsi' % \
            (prod, release, fileIns))
 
 # Remove if it's already exists

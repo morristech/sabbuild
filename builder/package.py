@@ -285,7 +285,7 @@ Git = CheckPath('git')
 
 if os.name == 'nt':
     msg = 'Requires the Unicode version of NSIS'
-    NSIS = CheckPath('makensis')
+    NSIS = CheckPath('makensisw')
     if NSIS:
         log = '%s.log' % NSIS
         os.system('%s >%s' % (NSIS, log))

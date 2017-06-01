@@ -57,12 +57,12 @@ build_script:
   # We need to set the PATH for every virtualenv
   # > Win64
   - ..\win64\Scripts\activate.bat
-  - set PATH=C:\projects\sabbuild\builder\src\win\7zip;C:\Program Files (x86)\NSIS\Unicode;%PATH%
+  - set PATH=C:\projects\sabbuild\builder\src\win\7zip;C:\Program Files (x86)\NSIS;%PATH%
   - python package.py installer
   - deactivate
   # > Win32
   - ..\win32\Scripts\activate.bat
-  - set PATH=C:\projects\sabbuild\builder\src\win\7zip;C:\Program Files (x86)\NSIS\Unicode;%PATH%
+  - set PATH=C:\projects\sabbuild\builder\src\win\7zip;C:\Program Files (x86)\NSIS;%PATH%
   - python package.py installer
 
   # Make the installer (from 32bit, to be sure)

@@ -459,7 +459,7 @@ if target == 'app':
                    },
                'packages': "email,xml,Cheetah,cryptography,cffi,packaging,objc,PyObjCTools",
                'includes': "cherrypy.wsgiserver.ssl_builtin,cryptography.hazmat.backends.openssl,appdirs",
-               'excludes': ["pywin", "pywin.debugger", "pywin.debugger.dbgcon", "pywin.dialogs", "pywin.dialogs.list",
+               'excludes': ["pywin", "pywin.debugger", "pywin.debugger.dbgcon", "pywin.dialogs", "pywin.dialogs.list", "setuptools",
                             "Tkconstants", "Tkinter", "tcl", "doctest", "unittest", "pdb", "difflib", "pydoc", "pydoc_data"]
                }
 
@@ -565,7 +565,7 @@ elif target in ('binary', 'installer'):
     options['options'] = {"py2exe":
                               { "bundle_files": 3,
                                 "packages": "email,xml,Cheetah,packaging,appdirs,win32file,cherrypy.wsgiserver.ssl_builtin,cryptography,cffi,cryptography.hazmat.backends.openssl",
-                                "excludes": ["pywin", "pywin.debugger", "pywin.debugger.dbgcon", "pywin.dialogs", "pywin.dialogs.list",
+                                "excludes": ["pywin", "pywin.debugger", "pywin.debugger.dbgcon", "pywin.dialogs", "pywin.dialogs.list", "setuptools",
                                              "Tkconstants", "Tkinter", "tcl", "doctest", "unittest", "pdb", "difflib", "pydoc", "pydoc_data"],
                                 "optimize": 2,
                                 "compressed": 0

@@ -39,7 +39,6 @@ find . -name 'th.po' -delete
 find . -name 'lo.po' -delete
 find . -name 'hy.po' -delete
 find . -name 'hu.po' -delete
-find . -name 'he.po' -delete
 find . -name 'hr.po' -delete
 find . -name 'cy.po' -delete
 find . -name 'cs.po' -delete

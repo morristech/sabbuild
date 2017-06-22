@@ -61,7 +61,7 @@ cp -Rf 0.8.x.tr/po builder/src
 
 # Make a shallow copy to commit the new translations
 # We cannot use the src/builder because it's in detatched HEAD mode
-git clone --depth 1 --branch feature/2to3 git@github.com:sabnzbd/sabnzbd.git sabnzbd_translations
+git clone --depth 1 --branch develop git@github.com:sabnzbd/sabnzbd.git sabnzbd_translations
 
 # Copy translations
 cp -Rf 0.8.x.tr/po sabnzbd_translations

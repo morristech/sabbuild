@@ -7,7 +7,6 @@ This repository is used to build and package releases of SABnzbd using TravisCI 
 # For future reference:
 
 - Investigate which files should or shouldn't be included in the repo, such as installers etc.
-- Enable caching on the build platforms.
 
 ## macOS build (Travis)
 
@@ -15,6 +14,11 @@ This repository is used to build and package releases of SABnzbd using TravisCI 
 After the certificate is generated you need to import that certificate on the Mac. Then you can export the key-certificate pair by right-clicking on it in the Keychain manager. This `p12` file is what you will need.
 - This file should NEVER be published, you need to use `travis encrypt-file --add` to create a version to commit.
 WARNING: encrypted files generated with `travis encrypt-file` on Windows do not work!
+- Using `openssl` for file-encrypting sucks, used encrypted `.rar` because it kept failing.
+- All `.sh` files need to have `0755` permissions to run on Travis.
+- Certificate verification for SSH will fail because you cannot say `yes`, so need to be disabled on a per-host basis.
+- All `~/.ssh/` files need to have only user-read permissions.
+- Don't forget to add private-keys to Launchpad and GitHub if ever changed.
 
 ## Windows build
 

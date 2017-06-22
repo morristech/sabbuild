@@ -11,6 +11,7 @@ matrix:
     osx_image: xcode8.3
 install:
 - travis/install.sh
+- travis/translations.sh
 script:
 - travis/build.sh
 deploy:

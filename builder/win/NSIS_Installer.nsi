@@ -501,8 +501,6 @@ SectionEnd
 ;Language strings
   LangString MsgShowRelNote ${LANG_ENGLISH} "Show Release Notes"
 
-  ; LangString MsgRunSAB      ${LANG_ENGLISH} "Start SABnzbd"
-
   LangString MsgSupportUs   ${LANG_ENGLISH} "Support the project, Donate!"
 
   LangString MsgCloseSab    ${LANG_ENGLISH} "Please close $\"SABnzbd.exe$\" first"

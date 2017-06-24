@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e -x
+set -x
 
 #################################
 # Push new translations to Launchpad for translations

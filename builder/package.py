@@ -555,7 +555,7 @@ elif target in ('binary', 'installer'):
     # version has to be in #.#.#.# format (semver) to be valid
     program = [ {'script': 'SABnzbd.py',
                  'icon_resources': [(0, "icons/sabnzbd.ico")],
-                 'version': '0.0.0.0',
+                 'version': release,
                  'company_name': 'The SABnzbd-team',
                  'name': 'SABnzbd ' + str(my_version),
                  'comments': 'SABnzbd ' + str(my_version),

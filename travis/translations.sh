@@ -67,6 +67,10 @@ git clone --depth 1 --branch develop git@github.com:sabnzbd/sabnzbd.git sabnzbd_
 cp -Rf 0.8.x.tr/po sabnzbd_translations
 cd sabnzbd_translations
 
+# Set a more usefull username
+git config user.name "Travis"
+git config user.email "bugs@sabnzbd.org"
+
 # Add and commit
 git add -A
 git commit -m "Automatic translation update"

@@ -58,23 +58,25 @@ cp -Rf 0.8.x.tr/po builder/src
 
 #################################
 # Push translations back to Github
+# Only on tags, to reduce commit-noise
+if [ ! -z "$TRAVIS_TAG" ]; then
+    # Make a shallow copy to commit the new translations
+    # We cannot use the src/builder because it's in detatched HEAD mode
+    git clone --depth 1 --branch develop git@github.com:sabnzbd/sabnzbd.git sabnzbd_translations
 
-# Make a shallow copy to commit the new translations
-# We cannot use the src/builder because it's in detatched HEAD mode
-git clone --depth 1 --branch develop git@github.com:sabnzbd/sabnzbd.git sabnzbd_translations
+    # Copy translations
+    cp -Rf 0.8.x.tr/po sabnzbd_translations
+    cd sabnzbd_translations
 
-# Copy translations
-cp -Rf 0.8.x.tr/po sabnzbd_translations
-cd sabnzbd_translations
+    # Set a more usefull username
+    git config user.name "Travis"
+    git config user.email "bugs@sabnzbd.org"
 
-# Set a more usefull username
-git config user.name "Travis"
-git config user.email "bugs@sabnzbd.org"
+    # Add and commit
+    git add -A
+    git commit -m "Automatic translation update"
+    git push
 
-# Add and commit
-git add -A
-git commit -m "Automatic translation update"
-git push
-
-# All done!
-cd ..
+    # All done!
+    cd ..
+fi

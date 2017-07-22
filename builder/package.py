@@ -537,9 +537,6 @@ elif target in ('binary', 'installer'):
     if os.path.exists('dist'):
         shutil.rmtree('dist')
 
-    # TODO: remove build dir when building windows?
-    # if os.path.exists('build'):
-    #    shutil.rmtree('build')
 
     # Create MO files
     shutil.copy('../win/NSIS_Installer.nsi', 'NSIS_Installer.nsi')
@@ -676,6 +673,7 @@ else:
     # Prepare Source distribution package.
     # Make sure all source files are Unix format
     import shutil
+    import hashlib
 
     # Create MO files
     os.system('python tools/make_mo.py')
@@ -737,4 +735,15 @@ else:
     # Cleanup
     shutil.rmtree(root)
 
+    # Calculate md5/sha1/sha256 for SynoCommunity submission
+    src_tar = open(fileSrc,'rb').read()
+    print
+    print "########################################"
+    print "File hashes"
+    print "########################################"
+    print fileSrc, 'SHA1', hashlib.sha1(src_tar).hexdigest()
+    print fileSrc, 'SHA256', hashlib.sha256(src_tar).hexdigest()
+    print fileSrc, 'MD5', hashlib.md5(src_tar).hexdigest()
+
+    # Revert status
     os.system(GitRevertVersion)

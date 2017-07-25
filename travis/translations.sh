@@ -69,7 +69,7 @@ if [ ! -z "$TRAVIS_TAG" ]; then
     cd sabnzbd_translations
 
     # Set a more usefull username
-    git config user.name "Travis"
+    git config user.name "SABnzbd Automation"
     git config user.email "bugs@sabnzbd.org"
 
     # Add and commit

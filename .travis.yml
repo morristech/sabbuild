@@ -10,10 +10,14 @@ matrix:
   - os: osx
     osx_image: xcode8.3
 install:
-- travis/install.sh
-- travis/translations.sh
+  - if [ ! -z "$TRAVIS_TAG" ]; then
+      travis/install.sh;
+      travis/translations.sh;
+    fi
 script:
-- travis/build.sh
+  - if [ ! -z "$TRAVIS_TAG" ]; then
+      travis/build.sh;
+    fi
 deploy:
   provider: releases
   api_key:

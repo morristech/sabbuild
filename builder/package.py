@@ -542,6 +542,17 @@ elif target in ('binary', 'installer'):
     shutil.copy('../win/NSIS_Installer.nsi', 'NSIS_Installer.nsi')
     os.system('tools\\make_mo.py all')
 
+    # Copy certificate file
+    try:
+        import certifi
+    except:
+        print "Need certifi module"
+        os.system(GitRevertVersion)
+        exit(1)
+    shutil.copy(certifi.where(), 'cacert.pem')
+    data_files.append('cacert.pem')
+
+    # List data files
     data_files.append('portable.cmd')
     options['data_files'] = PairList(data_files)
     options['description'] = 'SABnzbd ' + str(my_version)

@@ -3,4 +3,3 @@ pyobjc
 py2app
 dmgbuild==1.2.1
 biplist
-certifi

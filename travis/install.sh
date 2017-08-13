@@ -1,10 +1,8 @@
 #!/bin/bash
 set -e -x
 
-# First remove python to have clean system install
-brew update
-brew uninstall --ignore-dependencies python
-brew install python
+# No need for brew update
+export HOMEBREW_NO_AUTO_UPDATE=1
 
 # Pandoc to create the readme and bazaar for the translation files
 brew install pandoc bazaar

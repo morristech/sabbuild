@@ -457,7 +457,7 @@ if target == 'app':
                    'CFBundleDocumentTypes': [NZBFILE],
                    'LSMinimumSystemVersion': '10.9'
                    },
-               'packages': "email,xml,Cheetah,cryptography,cffi,packaging,objc,PyObjCTools",
+               'packages': "email,xml,xml.sax,certifi,Cheetah,cryptography,cffi,packaging,objc,PyObjCTools",
                'includes': "cherrypy.wsgiserver.ssl_builtin,cryptography.hazmat.backends.openssl,appdirs",
                'excludes': ["pywin", "pywin.debugger", "pywin.debugger.dbgcon", "pywin.dialogs", "pywin.dialogs.list", "setuptools",
                             "Tkconstants", "Tkinter", "tcl", "doctest", "unittest", "pdb", "difflib", "pydoc", "pydoc_data"]

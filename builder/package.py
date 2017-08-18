@@ -457,7 +457,7 @@ if target == 'app':
                    'CFBundleDocumentTypes': [NZBFILE],
                    'LSMinimumSystemVersion': '10.9'
                    },
-               'packages': "email,xml,Cheetah,cryptography,cffi,packaging,objc,PyObjCTools",
+               'packages': "email,xml,xml.sax,certifi,Cheetah,cryptography,cffi,packaging,objc,PyObjCTools",
                'includes': "cherrypy.wsgiserver.ssl_builtin,cryptography.hazmat.backends.openssl,appdirs",
                'excludes': ["pywin", "pywin.debugger", "pywin.debugger.dbgcon", "pywin.dialogs", "pywin.dialogs.list", "setuptools",
                             "Tkconstants", "Tkinter", "tcl", "doctest", "unittest", "pdb", "difflib", "pydoc", "pydoc_data"]
@@ -542,6 +542,17 @@ elif target in ('binary', 'installer'):
     shutil.copy('../win/NSIS_Installer.nsi', 'NSIS_Installer.nsi')
     os.system('tools\\make_mo.py all')
 
+    # Copy certificate file
+    try:
+        import certifi
+    except:
+        print "Need certifi module"
+        os.system(GitRevertVersion)
+        exit(1)
+    shutil.copy(certifi.where(), 'cacert.pem')
+    data_files.append('cacert.pem')
+
+    # List data files
     data_files.append('portable.cmd')
     options['data_files'] = PairList(data_files)
     options['description'] = 'SABnzbd ' + str(my_version)
@@ -562,7 +573,7 @@ elif target in ('binary', 'installer'):
     options['options'] = {"py2exe":
                               { "bundle_files": 3,
                                 "packages": "email,xml,Cheetah,packaging,appdirs,win32file,cherrypy.wsgiserver.ssl_builtin,cryptography,cffi,cryptography.hazmat.backends.openssl",
-                                "excludes": ["pywin", "pywin.debugger", "pywin.debugger.dbgcon", "pywin.dialogs", "pywin.dialogs.list", "setuptools",
+                                "excludes": ["pywin", "pywin.debugger", "pywin.debugger.dbgcon", "pywin.dialogs", "pywin.dialogs.list", "setuptools", "certifi",
                                              "Tkconstants", "Tkinter", "tcl", "doctest", "unittest", "pdb", "difflib", "pydoc", "pydoc_data"],
                                 "optimize": 2,
                                 "compressed": 0

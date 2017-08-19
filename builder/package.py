@@ -457,10 +457,10 @@ if target == 'app':
                    'CFBundleDocumentTypes': [NZBFILE],
                    'LSMinimumSystemVersion': '10.9'
                    },
-               'packages': "email,xml,xml.sax,certifi,Cheetah,cryptography,cffi,packaging,objc,PyObjCTools",
+               'packages': "email,xml,xml.sax,Cheetah,cryptography,cffi,packaging,objc,PyObjCTools",
                'includes': "cherrypy.wsgiserver.ssl_builtin,cryptography.hazmat.backends.openssl,appdirs",
                'excludes': ["pywin", "pywin.debugger", "pywin.debugger.dbgcon", "pywin.dialogs", "pywin.dialogs.list", "setuptools",
-                            "Tkconstants", "Tkinter", "tcl", "doctest", "unittest", "pdb", "difflib", "pydoc", "pydoc_data"]
+                            "Tkconstants", "Tkinter", "tcl", "doctest", "unittest", "pdb", "difflib", "pydoc", "pydoc_data", "certifi"]
                }
 
     setup(
@@ -483,6 +483,15 @@ if target == 'app':
     os.system("cp icons/sabnzbd.ico dist/SABnzbd.app/Contents/Resources >/dev/null")
     os.system("pandoc -f markdown -t rtf -s -o dist/SABnzbd.app/Contents/Resources/Credits.rtf README.mkd >/dev/null")
     os.system("find dist/SABnzbd.app -name .git | xargs rm -rf")
+
+    # Copy certificate file
+    try:
+        import certifi
+    except:
+        print "Need certifi module"
+        os.system(GitRevertVersion)
+        exit(1)
+    shutil.copy(certifi.where(), 'dist/SABnzbd.app/Contents/Resources/cacert.pem')
 
     # Remove source files to prevent re-compilation, which would invalidate signing
     py_ver = '%s.%s' % (sys.version_info[0], sys.version_info[1])

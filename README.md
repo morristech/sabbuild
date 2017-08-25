@@ -4,11 +4,7 @@ SABBuilder
 This repository is used to build and package releases of SABnzbd using TravisCI (macOS) and AppVeyor (Windows). Releases will be pushed as drafts to this repository, after which they can be moved to the main `sabnzbd` repo.
 
 
-# How to's
-
-- Add `[skip translations]` to the commit message to skip adding the new texts to the `sabnzbd` repo.
-
-# For future development:
+# For future reference:
 
 - Investigate which files should or shouldn't be included in the repo, such as installers etc.
 

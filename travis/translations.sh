@@ -71,12 +71,11 @@ cd sabnzbd_translations
 git config user.name "SABnzbd Automation"
 git config user.email "bugs@sabnzbd.org"
 
-# Add and commit, if not told otherwise
-if [[ TRAVIS_COMMIT_MESSAGE == *"skip translations"* ]]; then
-    git add -A
-    git commit -m "Automatic translation update"
-    git push
-fi
+# Add and commit
+git add -A
+git commit -m "Automatic translation update"
+git push
+
 
 # All done!
 cd ..

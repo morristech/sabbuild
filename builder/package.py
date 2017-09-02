@@ -455,7 +455,7 @@ if target == 'app':
                    'NSHumanReadableCopyright': 'The SABnzbd-Team',
                    'CFBundleIdentifier': 'org.sabnzbd.team',
                    'CFBundleDocumentTypes': [NZBFILE],
-                   'LSMinimumSystemVersion': '10.9'
+                   'LSMinimumSystemVersion': '10.9',
                    'LSEnvironment': { 'LANG': 'en_US.UTF-8', 'LC_ALL': 'en_US.UTF-8' }
                    },
                'packages': "email,xml,xml.sax,Cheetah,cryptography,cffi,packaging,objc,PyObjCTools",

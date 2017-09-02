@@ -456,7 +456,7 @@ if target == 'app':
                    'CFBundleIdentifier': 'org.sabnzbd.team',
                    'CFBundleDocumentTypes': [NZBFILE],
                    'LSMinimumSystemVersion': '10.9'
-                   'LSEnvironment': { 'LANG': 'en_US.UTF-8' }
+                   'LSEnvironment': { 'LANG': 'en_US.UTF-8', 'LC_ALL': 'en_US.UTF-8' }
                    },
                'packages': "email,xml,xml.sax,Cheetah,cryptography,cffi,packaging,objc,PyObjCTools",
                'includes': "cherrypy.wsgiserver.ssl_builtin,cryptography.hazmat.backends.openssl,appdirs",

@@ -28,7 +28,7 @@ sleepless = Extension('sleepless',
 
 setup(
     name            = "sleepless",
-    version         = "1.0.3",
+    version         = "1.0.4",
     author          = "SABnzbd",
     author_email    = "team@sabnzbd.org",
     url             = "https://github.com/sabnzbd/sabbuild",
@@ -61,13 +61,13 @@ Usage:
     import sleepless
 
     # Tell OS to keep awake
-    sleepless.keep_awake("MyApp - why I don't sleep")
+    sleepless.keep_awake(u"MyApp - why I don't sleep")
 
     # Do stuff
     do_lengthy_action()
 
     # Calling again is harmless
-    sleepless.keep_awake("MyApp - why I don't sleep")
+    sleepless.keep_awake(u"MyApp - why I don't sleep")
 
     # When done
     sleepless.allow_sleep()

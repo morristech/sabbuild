@@ -25,7 +25,7 @@ sleepless_allow_sleep(PyObject *self, PyObject *args) {
 static PyMethodDef SleeplessMethods[] = {
     {"keep_awake", sleepless_keep_awake, METH_VARARGS,
      "Tell OS to stay awake\n"
-     "One argument: text to send to OS (plain ASCII or Unicode)\n"
+     "One argument: text to send to OS (Unicode)\n"
      "Stays in effect until next 'allow_sleep' call\n"
      "Multiple calls allowed)"},
 

@@ -1,9 +1,6 @@
 #!/bin/bash
 set -e -x
 
-# No need for brew update
-export HOMEBREW_NO_AUTO_UPDATE=1
-
 # Pandoc to create the readme and bazaar for the translation files
 brew install pandoc bazaar
 

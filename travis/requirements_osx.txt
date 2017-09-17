@@ -1,4 +1,5 @@
 # For the OSX build specific
+sleepless
 pyobjc
 py2app
 dmgbuild==1.2.1

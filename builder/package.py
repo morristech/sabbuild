@@ -283,11 +283,6 @@ release = pkginfo.Develop('.').version
 # Check paths
 Git = CheckPath('git')
 
-if os.name != 'nt':
-    PanDoc = CheckPath('pandoc')
-else:
-    PanDoc = None
-
 if os.name == 'nt':
     msg = 'Requires the Unicode version of NSIS'
     NSIS = CheckPath('makensis')
@@ -399,11 +394,6 @@ if target == 'app':
         os.system(GitRevertVersion)
         exit(1)
 
-    if not PanDoc:
-        print "Sorry, requires pandoc in the $PATH"
-        os.system(GitRevertVersion)
-        exit(1)
-
     try:
         import sleepless
     except:
@@ -482,7 +472,7 @@ if target == 'app':
     os.system("cp -pR osx/7zip/7za dist/SABnzbd.app/Contents/Resources/osx/7zip/ >/dev/null")
     os.system("cp -pR osx/7zip/License.txt dist/SABnzbd.app/Contents/Resources/osx/7zip/ >/dev/null")
     os.system("cp icons/sabnzbd.ico dist/SABnzbd.app/Contents/Resources >/dev/null")
-    os.system("pandoc -f markdown -t rtf -s -o dist/SABnzbd.app/Contents/Resources/Credits.rtf README.mkd >/dev/null")
+    os.system("cp README.mkd dist/SABnzbd.app/Contents/Resources >/dev/null")
     os.system("find dist/SABnzbd.app -name .git | xargs rm -rf")
 
     # Copy certificate file

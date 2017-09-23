@@ -35,13 +35,10 @@ if __name__ == "__main__":
         print 'Requires dmgbuild-module, use pip install dmgbuild'
         exit()
 
-    # Require OSX El Capitan
-    OSX_REQ = [int(n) for n in platform.mac_ver()[0].split('.')] >= [10, 11, 0]
-
     # Check if signing is possible
     authority = os.environ.get('SIGNING_AUTH')
-    if authority and not OSX_REQ:
-        print 'Signing should be done on OSX %s or higher' % OSX_REQ
+    if not authority:
+        print 'No SIGNING_AUTH set! Aborting.'
         exit(1)
 
     # Extract version info and set DMG path
@@ -56,8 +53,8 @@ if __name__ == "__main__":
     apppath = 'src/dist/SABnzbd.app'
 
     # Copy Readme
-    readmepath_old = os.path.join(apppath, 'Contents/Resources/Credits.rtf')
-    readmepath_new = 'README.rtf'
+    readmepath_old = os.path.join(apppath, 'Contents/Resources/README.mkd')
+    readmepath_new = 'README.txt'
     os.system('cp -p "%s" "%s"' % (readmepath_old, readmepath_new))
 
     # Path to background

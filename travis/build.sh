@@ -21,7 +21,7 @@ security import ./travis/codesign/PrivKey.p12 -P rgi1512 -k $KEYCHAIN -A;
 
 # Set path to python (update when needed!)
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-export PYTHON_PATH=/usr/local/Cellar/python/2.7.13_1/Frameworks/Python.framework/Versions/2.7;
+export PYTHON_PATH=/usr/local/Cellar/python/2.7.14/Frameworks/Python.framework/Versions/2.7;
 
 # Required for py2app to find PyObjCTools!
 touch ${PYTHON_PATH}/lib/python2.7/site-packages/PyObjCTools/__init__.py

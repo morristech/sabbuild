@@ -2,7 +2,7 @@
 set -e -x
 
 # Update to get latest python
-brew update
+brew update >/dev/null
 
 # Pandoc to create the readme and bazaar for the translation files
 brew install bazaar

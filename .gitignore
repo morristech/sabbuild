@@ -9,6 +9,7 @@ bin
 var
 sdist
 develop-eggs
+*.egg-info
 installer_output
 .installed.cfg
 

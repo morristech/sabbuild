@@ -1,7 +1,7 @@
 # SAB-Specific
 git+https://github.com/cheetahtemplate/cheetah.git
 cryptography
-git+git://github.com/sabnzbd/sabyenc@v332#egg=sabyenc
+sabyenc
 certifi
 
 # Basic build requirements

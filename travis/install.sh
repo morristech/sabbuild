@@ -8,7 +8,7 @@ brew update >/dev/null
 brew install bazaar
 
 # Update Python, if fails ignore
-brew upgrade python || :
+brew outdated python || brew upgrade python
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 # Display Python version

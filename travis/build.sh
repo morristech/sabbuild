@@ -17,7 +17,7 @@ security import ./travis/codesign/PrivKey.p12 -P rgi1512 -k $KEYCHAIN -A;
 
 # This is required to make sure the codesign doesn't hang
 # Only on 10.12 and above!
-#security set-key-partition-list -S apple-tool:,apple: -s -k $KEYCHAIN_PASS $KEYCHAIN
+security set-key-partition-list -S apple-tool:,apple: -s -k $KEYCHAIN_PASS $KEYCHAIN
 
 # Set path to python (update when needed!)
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"

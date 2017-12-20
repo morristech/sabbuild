@@ -7,8 +7,8 @@ brew update >/dev/null
 # Pandoc to create the readme and bazaar for the translation files
 brew install bazaar
 
-# Update Python
-brew upgrade python
+# Update Python, if fails ignore
+brew upgrade python || :
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 # Display Python version

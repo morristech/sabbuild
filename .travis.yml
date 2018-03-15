@@ -1,22 +1,27 @@
-notifications:
-  email: false
+# Only build tags
+if: tag IS present
+
+
 git:
   depth: 1
+
 # We need OSX 10.11, Travis is confusing what they offer
 # https://docs.travis-ci.com/user/reference/osx/#OS-X-Version
 matrix:
   include:
   - os: osx
     osx_image: xcode8
+
+before_install:
+  - openssl aes-256-cbc -k "$custom_openssl_key" -in travis/codesign/PrivKey.p12.enc -out travis/codesign/PrivKey.p12 -d
+
 install:
-  - if [ ! -z "$TRAVIS_TAG" ]; then
-      travis/install.sh;
-      travis/translations.sh;
-    fi
+  - travis/install.sh;
+  - travis/translations.sh;
+
 script:
-  - if [ ! -z "$TRAVIS_TAG" ]; then
-      travis/build.sh;
-    fi
+  - travis/build.sh;
+
 deploy:
   provider: releases
   api_key:
@@ -27,6 +32,6 @@ deploy:
   overwrite: true
   on:
     tags: true
-before_install:
-- openssl aes-256-cbc -k "$custom_openssl_key"
-  -in travis/codesign/PrivKey.p12.enc -out travis/codesign/PrivKey.p12 -d
+
+notifications:
+  email: false

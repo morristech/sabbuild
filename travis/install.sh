@@ -1,15 +1,15 @@
 #!/bin/bash
 set -e -x
 
-# Update to get latest python
+# Force update
 brew update >/dev/null
 
 # Pandoc to create the readme and bazaar for the translation files
 brew install bazaar
 
 # Update Python, if fails ignore
-brew outdated python || brew upgrade python
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+brew install python@2 || true
+brew link --overwrite python@2
 
 # Display Python version
 python -c "import sys; print sys.version"

@@ -5,7 +5,7 @@ install:
   - git submodule update --init
 
   # Install NSIS
-  - appveyor DownloadFile "https://sourceforge.net/projects/nsis/files/NSIS%203/3.03/nsis-3.03-setup.exe" -FileName nsis.exe
+  - appveyor DownloadFile "https://netix.dl.sourceforge.net/project/nsis/NSIS%203/3.03/nsis-3.03-setup.exe" -FileName nsis.exe
   - nsis.exe /S
 
   # Get bazaar and clone the translations repo
